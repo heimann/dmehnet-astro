@@ -7,27 +7,33 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>dmeh.net</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="flex justify-center">
-    <div class="my-8 max-w-xl px-4">
-      <p>Hi there! I'm David Heimann, a computer programmer in Brooklyn, NY.</p>
-      <p class="mt-4">This is my corner of the internet. I won't make any promises about what you'll find here, but I generally try to make it a place that I would enjoy if I stumbled onto it myself. I also find it helpful to use it to clarify my own thinking, a sort of map for where I am and where I might be going. </p>
-      <p class="mt-4">
-        I'm currently working on the software team at <a href="https://impilo.health">Impilo</a>. Before that I co-founded
-        <a href="https://brus.ai">Brus</a> and
-        <a href="https://www.niemanlab.org/2016/03/with-purple-you-can-get-election-updates-and-political-info-via-text/">Purple</a>, which we
-        <a href="https://www.axios.com/theskimm-purple-acquisition-texting-email-52cad29c-5374-46e4-8155-b7410d734bf8.html">sold to theSkimm</a>
-        in 2019.
-      </p>
-      <p class="mt-4">I like making things with computers. The fact that we have this incredible tool at our fingertips, where we can alter the world around us with a few keystrokes never ceases to amaze me. Most of all, I like making things that help people understand the world around them better, or that helps them make things themselves! </p>
-      <p class="mt-4">Recently, I've been working on <a href="https://links.rip">a new kind of bookmarking website</a> that works more like fuzzy search on top of a text conversation than a catalogue.</p>
-      <p class="mt-4">You can find me on <a href="https://twitter.com/davidmeh">Twitter</a> and on <a href="https://github.com/heimann">Github</a>.</p>
+  <body class="min-h-screen">
+    <div class="flex flex-col items-center md:items-start md:flex-row md:justify-center">
+      <nav class="w-full md:w-auto pt-4 pl-4 md:relative md:right-0 md:h-full md:mt-4">
+        <ul class="flex flex-col md:flex-col justify-center md:justify-start space-x-0 md:space-y-2">
+          <li><a href="#home" class="text-blue-800 hover:underline">Home</a></li>
+          <li><a href="#thoughts" class="text-blue-800 hover:underline">Thoughts</a></li>
+          <li><a href="#reading-lists" class="text-blue-800 hover:underline">Reading Lists</a></li>
+          <li><a href="#books" class="text-blue-800 hover:underline">Books</a></li>
+          <li><a href="#projects" class="text-blue-800 hover:underline">Projects</a></li>
+        </ul>
+      </nav>
+      <main class="max-w-xl p-4 md:p-8">
+        <p>Hi there! I'm David Heimann, a computer programmer in Brooklyn, NY.</p>
+        <p class="mt-4">This is my corner of the internet. I won't make any promises about what you'll find here, but I generally try to make it a place that I would enjoy if I stumbled onto it myself. I also find it helpful to use it to clarify my own thinking, a sort of map for where I am and where I might be going. </p>
+        <p class="mt-4">
+          I'm currently working on the software team at <a href="https://impilo.health" class="text-blue-600 hover:underline">Impilo</a>. Before that I co-founded
+          <a href="https://brus.ai" class="text-blue-600 hover:underline">Brus</a> and
+          <a href="https://www.niemanlab.org/2016/03/with-purple-you-can-get-election-updates-and-political-info-via-text/" class="text-blue-600 hover:underline">Purple</a>, which we
+          <a href="https://www.axios.com/theskimm-purple-acquisition-texting-email-52cad29c-5374-46e4-8155-b7410d734bf8.html" class="text-blue-600 hover:underline">sold to theSkimm</a>
+          in 2019.
+        </p>
+        <p class="mt-4">I like making things with computers. The fact that we have this incredible tool at our fingertips, where we can alter the world around us with a few keystrokes never ceases to amaze me. Most of all, I like making things that help people understand the world around them better, or that helps them make things themselves! </p>
+        <p class="mt-4">Recently, I've been working on <a href="https://links.rip">a new kind of bookmarking website</a> that works more like fuzzy search on top of a text conversation than a catalogue.</p>
+        <p class="mt-4">You can find me on <a href="https://twitter.com/davidmeh">Twitter</a> and on <a href="https://github.com/heimann">Github</a>.</p>
+      </main>
     </div>
   </body>
 </html>
-<style>
-a {
-  color: blue;
-  text-decoration: underline;
-}
-</style>
