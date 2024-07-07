@@ -1,6 +1,6 @@
 # dmeh.net
 
-This is the source code for my personal website built with [astro](https://astro.build) 
+This is the source code for [my personal website](https://dmeh.net) built with [astro](https://astro.build) 
 
 ## 🧞 Commands
 
