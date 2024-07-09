@@ -1,0 +1,254 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "dmeh.net";
+let books = [
+  {
+    Rating: "🤔",
+    Title: "In The Beginning Was the Command Line",
+    "Purchase Link": "https://amzn.to/2Md3QoK",
+  },
+  {
+    Title: "Master and Margarita",
+    "Purchase Link": "https://amzn.to/2MeIKGu",
+  },
+  {
+    "Purchase Link": "https://amzn.to/2B8lDHx",
+    Title: "Do Colors Exist?: And Other Profound Physics Questions",
+  },
+  {
+    Title: "The Main Enemy",
+    "Purchase Link": "https://amzn.to/2VISj3N",
+  },
+  {
+    "Purchase Link": "https://amzn.to/2VRraMh",
+    Title: "Words from the Myths",
+  },
+  {
+    Title: "Gödel, Escher, Bach: An Eternal Golden Braid",
+    "Purchase Link": "https://amzn.to/33vDCnd",
+  },
+  {
+    Title: "Relativity",
+    "Purchase Link": "https://amzn.to/32icd82",
+  },
+  {
+    Title: "The Naked Sun",
+    "Purchase Link": "https://amzn.to/31gbYJF",
+  },
+  {
+    Title: "The Complete Robot",
+    "Purchase Link": "https://amzn.to/2IQrjtI",
+  },
+  {
+    Title: "Abhorsen",
+    "Purchase Link": "https://amzn.to/2VHhHqr",
+  },
+  {
+    Title: "High Output Management",
+    "Purchase Link": "https://amzn.to/2OOS0Dg",
+  },
+  {
+    Title: "Marooned in Realtime",
+    Rating: "😊",
+    "Purchase Link": "https://amzn.to/2Bo5yh7",
+  },
+  {
+    Title: "The Peace War",
+    "Purchase Link": "https://amzn.to/2MilkAm",
+  },
+  {
+    Title: "East of Eden",
+    "Purchase Link": "https://amzn.to/2nLY44d",
+  },
+  {
+    Title: "Cauldron",
+    "Purchase Link": "https://amzn.to/2IQbFyJ",
+  },
+  {
+    "Purchase Link": "https://amzn.to/2BfPOfG",
+    Title: "The Accidental Superpower",
+  },
+  {
+    Title: "A Deepness in the Sky",
+    "Purchase Link": "https://amzn.to/2MhZhJK",
+  },
+  {
+    Title: "Childhood's End",
+    "Purchase Link": "https://amzn.to/32kGhA4",
+  },
+  {
+    Title: "White Tiger",
+    "Purchase Link": "https://amzn.to/2BdpXFo",
+  },
+  {
+    "Purchase Link": "https://amzn.to/2ONPRr7",
+    Title: "Where Good Ideas Come From",
+  },
+  {
+    Title: "Broca's Brain",
+    "Purchase Link": "https://amzn.to/2VHXXDb",
+  },
+  {
+    Title: "Foundation and Earth",
+    "Purchase Link": "https://amzn.to/2OPeSSS",
+  },
+  {
+    Title: "Franz Kafka: The Complete Stories",
+    "Purchase Link": "https://amzn.to/2BfPjlO",
+  },
+  {
+    Title: "Darkness at Noon",
+    "Purchase Link": "https://amzn.to/2VI6aXX",
+  },
+  {
+    "Purchase Link": "https://amzn.to/2oyxNH4",
+    Title: "A Fire Upon The Deep",
+  },
+  {
+    "Purchase Link": "https://amzn.to/2oy0CDy",
+    Title: "Dune",
+  },
+  {
+    "Purchase Link": "https://amzn.to/2VHxyFs",
+    Title: "Fundamentals of Astrodynamics",
+  },
+  {
+    Title: "The Caves of Steel",
+    "Purchase Link": "https://amzn.to/2oyzjce",
+  },
+  {
+    Title: "The Relativity of Wrong",
+    "Purchase Link": "https://amzn.to/2nQSrSo",
+  },
+  {
+    Title: "The Alchemist",
+    "Purchase Link": "https://amzn.to/2qeFv9I",
+  },
+  {
+    Title: "Man's Search for Meaning",
+    "Purchase Link": "https://amzn.to/33vpcn9",
+  },
+  {
+    Title: "Planetary Echoes",
+    "Purchase Link": "https://amzn.to/2OXNBxV",
+  },
+  {
+    Title: "Fantastic Voyage",
+    "Purchase Link": "https://amzn.to/2OORsxc",
+  },
+  {
+    Title: "The Broken Seal",
+    "Purchase Link": "https://amzn.to/33Gjsav",
+  },
+  {
+    Title: "The Case for Mars",
+    "Purchase Link": "https://amzn.to/2qcBlit",
+  },
+  {
+    Rating: "😊",
+    Title: "Richard Feynman: A Life in Science",
+    "Purchase Link": "https://amzn.to/2BaFjKC",
+  },
+  {
+    Rating: "👍",
+    Title: "The Cuckoo’s Egg",
+    "Purchase Link": "https://amzn.to/2VLOQl8",
+  },
+  {
+    Rating: "👍",
+    Title: "Permanent Record",
+    "Purchase Link": "https://amzn.to/2nLX685",
+  },
+  {
+    Title: "Rendezvous with Rama",
+    "Purchase Link": "https://amzn.to/31fsNUP",
+  },
+  {
+    "Purchase Link": "https://amzn.to/2ONQl0p",
+    Title: "1984",
+  },
+  {
+    Title: "Foundation's Edge",
+    "Purchase Link": "https://amzn.to/31hR38K",
+  },
+  {
+    Title: "Alexander Hamilton",
+    "Purchase Link": "https://amzn.to/2ISJ1wR",
+  },
+  {
+    Rating: "👍",
+    Title: "Einstein: A Life in Science",
+    "Purchase Link": "https://amzn.to/2IR87wa",
+  },
+  {
+    "Purchase Link": "https://amzn.to/2IShr2V",
+    Title: "The Nature of the Chemical Bond",
+  },
+  {
+    Title: "Consider Phlebas",
+    "Purchase Link": "https://amzn.to/2MJ4AB4",
+  },
+  {
+    Rating: "👍",
+    Title: "Dune Messiah",
+    "Purchase Link": "https://amzn.to/2BcxQLb",
+  },
+  {
+    Rating: "😊",
+    Title: "MIG Pilot - The Final Escape of Lt Belenko",
+    "Purchase Link": "https://amzn.to/32hcdW6",
+  },
+  {
+    Title: "The book of Sand and Shakespeare's Memory",
+    "Purchase Link": "https://amzn.to/2OOinJu",
+  },
+  {
+    Title: "My Inventions and Other Writings",
+    "Purchase Link": "https://amzn.to/2MI0VU",
+  },
+  {
+    Title: "Structures: Or Why Things Don't Fall Down",
+    "Purchase Link": "https://amzn.to/31fF0Jh",
+  },
+  {
+    Title: "Starship Troopers",
+    "Purchase Link": "https://amzn.to/2oy0MLb",
+  },
+  {
+    Title: "Battle Royale",
+    "Purchase Link": "https://amzn.to/33uwJm9",
+  },
+];
+
+let randomBooks = books.sort(() => 0.5 - Math.random()).slice(0, 5);
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <h1 class="text-2xl tracking-tight font-bold">Books</h1>
+  <p>
+    I spend a good amount of my time reading and often end up talking book
+    recommendations with friends. There's a growing number of people on the
+    internet putting up their book lists for others to browse. While I am a fan
+    of the idea behind it I find it can be kind of paralyzing to look at a list
+    of dozens of books.
+  </p>
+  <p class="mb-2">
+    This page is a bit of an experiment. Every time you load the page you will
+    be presented with five books at random from my bookshelf. The list of books
+    is not exhaustive nor have I read all of the books that I own, but my hope
+    is that someone might find inspiration for their next book.
+  </p>
+  <ul class="list-disc pl-4">
+    {
+      randomBooks.map((book) => (
+        <li class="">
+          <a href={book["Purchase Link"]} class="text-blue-600 hover:underline">
+            {book.Title}
+          </a>
+          {book.Rating && <span class="ml-2">{book.Rating}</span>}
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
+

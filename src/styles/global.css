@@ -1,0 +1,46 @@
+nav a {
+  position: relative;
+  padding-left: 20px;
+  display: block;
+  /* Makes each link take up full width */
+}
+
+nav a::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  /* Hide by default */
+  transition: opacity 0.3s ease;
+  /* Smooth transition for showing/hiding */
+}
+
+nav a.active::before {
+  opacity: 1;
+  /* Show for active link */
+}
+
+ol {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  list-style-type: decimal;
+}
+
+ol li {
+  padding-left: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: blue;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin-top: 1rem;
+}

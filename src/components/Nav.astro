@@ -1,0 +1,35 @@
+---
+
+---
+
+<nav
+  class="w-full md:w-auto pt-4 pl-4 md:relative md:right-0 md:h-full md:mt-4"
+>
+  <ul
+    class="flex flex-col md:flex-col justify-center md:justify-start space-x-0 md:space-y-2"
+  >
+    <li><a href="/" class="text-blue-800 hover:underline">Home</a></li>
+    <li>
+      <a href="/writing" class="text-blue-800 hover:underline">Writing</a>
+    </li>
+    <li><a href="/books" class="text-blue-800 hover:underline">Books</a></li>
+  </ul>
+</nav>
+<script>
+ const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+
+    // `slice` here to remove the first `/` in pathname
+    const currentPath = window.location.pathname.slice("1");
+
+    // `link.href` returns a whole url, such as: "https://somedomain.com/posts" and we only need the last part
+    const hrefArray = link.href.split("/");
+    const thisPath = hrefArray[hrefArray.length - 1];
+
+    if (currentPath === thisPath) {
+      link.classList.add("active");
+    }
+  });
+</script>
