@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "dmeh.net";
+const allPosts = await Astro.glob("../pages/posts/*.md");
+
+// Sort posts by pubDate in descending order (newest first)
+const sortedPosts = allPosts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).getTime() -
+    new Date(a.frontmatter.pubDate).getTime(),
+);
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <h1 class="text-2xl tracking-tight font-bold">Writing</h1>
+  <p>
+    Here's some writing that I feel good enough about to put it on the internet.
+  </p>
+  <p>
+    I'd like to publish more so hopefully if you come back there will be more!
+  </p>
+  <ul class="mt-4">
+    {
+      sortedPosts.map((post) => (
+        <li class="list-disc ml-4">
+          <a class="text-blue-800 hover:underline" href={post.url}>
+            {post.frontmatter.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
