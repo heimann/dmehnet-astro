@@ -40,10 +40,6 @@ let books = [
     "Purchase Link": "https://amzn.to/2IQrjtI",
   },
   {
-    Title: "Abhorsen",
-    "Purchase Link": "https://amzn.to/2VHhHqr",
-  },
-  {
     Title: "High Output Management",
     "Purchase Link": "https://amzn.to/2OOS0Dg",
   },
@@ -65,20 +61,12 @@ let books = [
     "Purchase Link": "https://amzn.to/2IQbFyJ",
   },
   {
-    "Purchase Link": "https://amzn.to/2BfPOfG",
-    Title: "The Accidental Superpower",
-  },
-  {
     Title: "A Deepness in the Sky",
     "Purchase Link": "https://amzn.to/2MhZhJK",
   },
   {
     Title: "Childhood's End",
     "Purchase Link": "https://amzn.to/32kGhA4",
-  },
-  {
-    Title: "White Tiger",
-    "Purchase Link": "https://amzn.to/2BdpXFo",
   },
   {
     "Purchase Link": "https://amzn.to/2ONPRr7",
@@ -121,16 +109,8 @@ let books = [
     "Purchase Link": "https://amzn.to/2nQSrSo",
   },
   {
-    Title: "The Alchemist",
-    "Purchase Link": "https://amzn.to/2qeFv9I",
-  },
-  {
     Title: "Man's Search for Meaning",
     "Purchase Link": "https://amzn.to/33vpcn9",
-  },
-  {
-    Title: "Planetary Echoes",
-    "Purchase Link": "https://amzn.to/2OXNBxV",
   },
   {
     Title: "Fantastic Voyage",
@@ -172,10 +152,6 @@ let books = [
     "Purchase Link": "https://amzn.to/31hR38K",
   },
   {
-    Title: "Alexander Hamilton",
-    "Purchase Link": "https://amzn.to/2ISJ1wR",
-  },
-  {
     Rating: "👍",
     Title: "Einstein: A Life in Science",
     "Purchase Link": "https://amzn.to/2IR87wa",
@@ -209,18 +185,8 @@ let books = [
   {
     Title: "Structures: Or Why Things Don't Fall Down",
     "Purchase Link": "https://amzn.to/31fF0Jh",
-  },
-  {
-    Title: "Starship Troopers",
-    "Purchase Link": "https://amzn.to/2oy0MLb",
-  },
-  {
-    Title: "Battle Royale",
-    "Purchase Link": "https://amzn.to/33uwJm9",
-  },
+  }
 ];
-
-let randomBooks = books.sort(() => 0.5 - Math.random()).slice(0, 5);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -232,23 +198,43 @@ let randomBooks = books.sort(() => 0.5 - Math.random()).slice(0, 5);
     of the idea behind it I find it can be kind of paralyzing to look at a list
     of dozens of books.
   </p>
-  <p class="mb-2">
+  <p>
     This page is a bit of an experiment. Every time you load the page you will
     be presented with five books at random from my bookshelf. The list of books
     is not exhaustive nor have I read all of the books that I own, but my hope
     is that someone might find inspiration for their next book.
   </p>
-  <ul class="list-disc pl-4">
-    {
-      randomBooks.map((book) => (
-        <li class="">
-          <a href={book["Purchase Link"]} class="text-blue-600 hover:underline">
-            {book.Title}
-          </a>
-          {book.Rating && <span class="ml-2">{book.Rating}</span>}
-        </li>
-      ))
-    }
-  </ul>
-</BaseLayout>
 
+  <h2 class="text-xl font-semibold mt-6 mb-3">Random Book Selection</h2>
+  <ul id="bookList" class="list-disc pl-5"></ul>
+
+  <script define:vars={{ books }}>
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function displayRandomBooks() {
+      const bookList = document.getElementById("bookList");
+      const randomBooks = shuffleArray([...books]).slice(0, 5);
+
+      bookList.innerHTML = randomBooks
+        .map(
+          (book) => `
+        <li class="mb-2">
+          <a href="${book["Purchase Link"]}" class="text-blue-600 hover:underline">
+            ${book.Title}
+          </a>
+          ${book.Rating ? `<span class="ml-2">${book.Rating}</span>` : ""}
+        </li>
+      `,
+        )
+        .join("");
+    }
+
+    displayRandomBooks();
+  </script>
+</BaseLayout>
