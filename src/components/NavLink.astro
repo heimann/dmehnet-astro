@@ -1,0 +1,11 @@
+---
+const currentPath = Astro.url.pathname;
+
+const { url, title } = Astro.props;
+
+const className = currentPath === url ? "active" : "";
+---
+
+<li>
+  <a href={url} class={className}>{title}</a>
+</li>

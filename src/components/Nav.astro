@@ -1,5 +1,5 @@
 ---
-
+import NavLink from "./NavLink.astro";
 ---
 
 <nav
@@ -8,37 +8,8 @@
   <ul
     class="flex flex-col md:flex-col justify-center md:justify-start space-x-0 md:space-y-2"
   >
-    <li><a href="/" class="text-blue-800 hover:underline">Home</a></li>
-    <li>
-      <a href="/writing" class="text-blue-800 hover:underline">Writing</a>
-    </li>
-    <li><a href="/books" class="text-blue-800 hover:underline">Books</a></li>
+    <NavLink url="/" title="Home" />
+    <NavLink url="/writing" title="Writing" />
+    <NavLink url="/books" title="Books" />
   </ul>
 </nav>
-<script>
-  const navLinks = document.querySelectorAll("nav a");
-
-  let currentPath = window.location.pathname.slice(1); // Remove quotes around 1
-  // If current path ends with a "/", remove it
-  currentPath =
-    currentPath[currentPath.length - 1] === "/"
-      ? currentPath.slice(0, -1)
-      : currentPath;
-
-  console.log("currentPath: " + currentPath);
-  console.log("navLinks:", navLinks);
-
-  navLinks.forEach((link) => {
-    if (link instanceof HTMLAnchorElement) {
-      link.classList.remove("active");
-
-      const hrefArray = link.href.split("/");
-      const thisPath = hrefArray[hrefArray.length - 1];
-      console.log("Evaluating path: " + thisPath);
-
-      if (currentPath === thisPath) {
-        link.classList.add("active");
-      }
-    }
-  });
-</script>
