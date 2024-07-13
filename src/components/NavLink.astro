@@ -3,11 +3,19 @@ const currentPath = Astro.url.pathname;
 
 const { url, title } = Astro.props;
 
-const className = currentPath === url ? "active" : "";
+let cleanCurrentPath;
+
+if (currentPath === "/") {
+  cleanCurrentPath = "/";
+} else {
+  cleanCurrentPath = currentPath.replace(/\/$/, "");
+}
+
+const className = cleanCurrentPath === url ? "active" : "";
 ---
 
 <li>
-  <a href={url} class={className}>{title}</a><span class="hidden"> - currPath: {currentPath}, url: {
-    url
-    }</span>
+  <a href={url} class={className}>{title}</a><span class="hidden">
+    - currPath: {currentPath}, url: {url}, cleanCurrentPath: {cleanCurrentPath}</span
+  >
 </li>
