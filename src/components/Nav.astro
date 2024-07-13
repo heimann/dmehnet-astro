@@ -18,19 +18,23 @@
 <script>
   const navLinks = document.querySelectorAll("nav a");
 
+  let currentPath = window.location.pathname.slice(1); // Remove quotes around 1
+  // If current path ends with a "/", remove it
+  currentPath =
+    currentPath[currentPath.length - 1] === "/"
+      ? currentPath.slice(0, -1)
+      : currentPath;
+
+  console.log("currentPath: " + currentPath);
+  console.log("navLinks:", navLinks);
+
   navLinks.forEach((link) => {
     if (link instanceof HTMLAnchorElement) {
       link.classList.remove("active");
 
-      let currentPath = window.location.pathname.slice(1); // Remove quotes around 1
-      // If current path ends with a "/", remove it
-      currentPath =
-        currentPath[currentPath.length - 1] === "/"
-          ? currentPath.slice(0, -1)
-          : currentPath;
-
       const hrefArray = link.href.split("/");
       const thisPath = hrefArray[hrefArray.length - 1];
+      console.log("Evaluating path: " + thisPath);
 
       if (currentPath === thisPath) {
         link.classList.add("active");
