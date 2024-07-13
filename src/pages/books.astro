@@ -224,7 +224,7 @@ let books = [
         .map(
           (book) => `
         <li class="mb-2">
-          <a href="${book["Purchase Link"]}" class="text-blue-600 hover:underline">
+          <a href="${book["Purchase Link"]}">
             ${book.Title}
           </a>
           ${book.Rating ? `<span class="ml-2">${book.Rating}</span>` : ""}
