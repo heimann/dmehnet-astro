@@ -13,4 +13,4 @@ Ok I say that but then you see things like Linear. I wish our stuff at Ressemble
 
 I don’t have the answers but I think it’s important to say out loud that it’s okay to care and caring makes a big difference, especially caring about the little things. 
 
-Actually no, it's not just ok to care, but it's a moral imperative. You should care.
+Actually no, it's not just ok to care... It's a moral imperative. You should care.
