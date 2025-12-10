@@ -47,6 +47,8 @@ a:hover {
   text-decoration: underline;
 }
 
-p {
-  margin-top: 1rem;
+@layer base {
+  p {
+    margin-top: 1rem;
+  }
 }
