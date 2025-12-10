@@ -1,3 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
 nav a {
   position: relative;
   padding-left: 20px;
